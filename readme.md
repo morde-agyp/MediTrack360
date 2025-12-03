@@ -80,6 +80,7 @@ cp .env.example .env
 ```
 
 Required environment variables:
+
 ```env
 # AWS Credentials
 AWS_ACCESS_KEY_ID=your_access_key
@@ -166,6 +167,7 @@ docker-compose up -d
 ### Trigger DAGs Manually
 
 From Airflow UI or CLI:
+
 ```bash
 kubectl exec -it <airflow-scheduler-pod> -n mouseoverme -- airflow dags trigger daily_postgres_extract
 ```
@@ -206,15 +208,18 @@ Kubernetes manages the provisioning of AWS resources through:
 ### Common Issues
 
 **Airflow tasks stuck in queue**
+
 ```bash
 kubectl scale deployment airflow-worker --replicas=3 -n mouseoverme
 ```
 
 **S3 connection errors**
+
 - Verify IAM role permissions include S3 read/write
 - Check AWS credentials in environment variables
 
 **Redshift connection timeout**
+
 - Verify security group allows inbound traffic from Kubernetes cluster
 - Check VPC peering if using private Redshift endpoint
 
