@@ -1,4 +1,4 @@
-# MouseOverMe
+# Meditrack360
 
 An end-to-end data engineering pipeline that ingests data from multiple sources, orchestrates workflows with Airflow, and delivers analytics-ready data to Amazon Redshift.
 
@@ -13,7 +13,7 @@ An end-to-end data engineering pipeline that ingests data from multiple sources,
 │ • REST APIs     │
 └─────────────────┘
         │
-        └──────────── All running on Docker + Kubernetes ────────────┘
+        └──────────────── All running on Docker ──────────────────┘
 ```
 
 ## Tech Stack
@@ -24,13 +24,12 @@ An end-to-end data engineering pipeline that ingests data from multiple sources,
 | Orchestration | Apache Airflow |
 | Storage | Amazon S3 |
 | Data Warehouse | Amazon Redshift |
-| Infrastructure | Kubernetes (AWS EKS) |
 | Containerization | Docker |
 
 ## Project Structure
 
 ```
-mouseoverme/
+meditrack360/
 ├── dags/                     # Airflow DAGs
 │   ├── postgres_ingestion.py
 │   ├── csv_ingestion.py
@@ -44,10 +43,6 @@ mouseoverme/
 │   │   ├── s3_loader.py
 │   │   └── redshift_loader.py
 │   └── transformers/         # Data transformation logic
-├── k8s/                      # Kubernetes manifests
-│   ├── airflow/
-│   ├── redshift/
-│   └── s3/
 ├── docker/
 │   ├── Dockerfile
 │   └── docker-compose.yml
@@ -61,7 +56,6 @@ mouseoverme/
 ## Prerequisites
 
 - Docker & Docker Compose
-- Kubernetes CLI (`kubectl`)
 - AWS CLI configured
 - Python 3.9+
 
@@ -69,8 +63,8 @@ mouseoverme/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-org/mouseoverme.git
-cd mouseoverme
+git clone https://github.com/your-org/meditrack360.git
+cd meditrack360
 ```
 
 ### 2. Set Environment Variables
